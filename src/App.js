@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+
 import './App.css';
+import Form from './_authForm/authForm';
+import UserProfile from './_avatar/avatar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: null,
+            photoUrl: null
+        }
+    }
+  render() {
+    const {name, photoUrl} = this.state
+    return (
+        <div>
+          <div className="wrapper">
+          </div>
+          <div className="content">
+            <div className="content__logo"></div>
+              <div className="content__box" >
+                  {!name && <Form callback={({name, photoUrl}) => {
+                      this.setState({name,photoUrl})
+                  }
+              } />}
+              {name && <UserProfile name={name} photoUrl={photoUrl} callback={({name,photoUrl}) => {
+                  this.setState({name, photoUrl})
+              }
+              }  />}
+              </div>
+          </div>
+        </div>
+    );
+  }
 }
-
 export default App;
