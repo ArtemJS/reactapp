@@ -23,12 +23,11 @@ class App extends Component {
               <div className="content__box" >
                   {!name && <Form callback={({name, photoUrl}) => {
                       this.setState({name,photoUrl})
-                  }
-              } />}
-              {name && <UserProfile name={name} photoUrl={photoUrl} callback={({name,photoUrl}) => {
-                  this.setState({name, photoUrl})
-              }
-              }  />}
+                  }}/>}
+                  {name && <UserProfile name={name} photoUrl={photoUrl}
+                    callback={({name,photoUrl}) => {
+                      this.setState({name, photoUrl})
+                  }}/>}
               </div>
           </div>
         </div>
