@@ -1,3 +1,9 @@
+Выполнено задание на ReactJs.
+
+### Найден баг отображения аватара на яндекс браузере (блочит изображение как рекламу)
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
